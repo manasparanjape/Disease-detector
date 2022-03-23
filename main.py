@@ -1,2 +1,2 @@
-from PIL import Image as img
-print("Point")
+import numpy as np
+print(np.arange(5))
