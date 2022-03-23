@@ -1,1 +1,2 @@
-import numpy as np
+from PIL import Image as img
+print("Point")
