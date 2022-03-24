@@ -1,2 +1,5 @@
 import numpy as np
-print(np.arange(5))
+from tensorflow import datasets, layers, Sequential, models
+import tensorflow as tf
+
+model = models.sequential
