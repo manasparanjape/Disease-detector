@@ -1,5 +1,13 @@
 import numpy as np
-from tensorflow import datasets, layers, Sequential, models
 import tensorflow as tf
+from tensorflow.keras import datasets, layers, Sequential, models
 
-model = models.sequential
+print(tf.__version__)
+
+model = models.Sequential()
+model.add(layers.Conv2D(pixels, (3, 3), activation='relu', input_shape=(pixels, pixels, 1)))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(2 * pixels, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(2 * pixels, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
