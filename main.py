@@ -1,10 +1,11 @@
-import numpy as np
-import tensorflow as tf
-from tensorflow.keras import datasets, layers, Sequential, models
+import glob
 from os import listdir
 from os.path import isfile, join
+
+import numpy as np
+import tensorflow as tf
 from PIL import Image as img
-import glob
+from tensorflow.keras import Sequential, datasets, layers, models
 
 print(tf.__version__)
 
@@ -22,4 +23,10 @@ train_images = []
 train_labels = np.array()
 folder_path = "C:/NN/Pneumonia/chest_xray/train/"
 for filename in glob.glob(folder_path + "NORMAL"):
-    
+    im = img.open(filename)
+    train_images.append(im)
+    train_labels = np.append(train_images, 0)
+for filename in glob.glob(folder_path + "PNEUMONIA"):
+    im = img.open(filename)
+    train_images.append(im)
+    if filename.contains()
