@@ -3,7 +3,8 @@ from os.path import isfile, join
 import numpy as np
 import tensorflow as tf
 from PIL import Image as img
-from tensorflow.keras import Sequential, datasets, layers, models
+from tensorflow.python import keras
+from keras import Sequential, datasets, layers, models
 
 train_data_points = 1000
 test_data_points = 100
@@ -48,3 +49,4 @@ for f in listdir(folder_path + "PNEUMONIA"):
         test_labels = np.append(test_labels, 1)
     elif "virus" in f:
         test_labels = np.append(test_labels, 2)
+
