@@ -34,4 +34,9 @@ for f in listdir(folder_path + "PNEUMONIA"):
 
 test_images = []
 test_labels = np.array()
-folder_path = 
+folder_path = "/mnt/c/NN/Pneumonia/chest_xray/test/"
+
+for f in listdir(folder_path + "NORMAL"):
+    im = img.open(f)
+    train_images.append(im)
+    train_labels = np.append(train_labels, 0)
