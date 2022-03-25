@@ -71,7 +71,13 @@ for f in listdir(folder_path + "PNEUMONIA"):
     elif "virus" in f:
         test_labels = np.append(test_labels, 2)
 
-train_images = np.array(train_images)
-test_images = np.array(test_images)
+# train_images = np.array(train_images)
+# test_images = np.array(test_images)
+print(type(train_images[0]))
+print(type(test_images))
+
+train_images = np.stack(train_images)
+test_images = np.stack(test_images)
+
 print(np.shape(train_images))
-print(np.array(test_images))
+print(np.shape(test_images))
