@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 from os import listdir
 from os.path import isfile, join
 import numpy as np
@@ -6,9 +9,9 @@ from PIL import Image as img
 from tensorflow.python import keras
 from keras import Sequential, datasets, layers, models
 
-train_data_points = 1000
-test_data_points = 100
-total_data_points = train_data_points
+# train_data_points = 1000
+# test_data_points = 100
+# total_data_points = train_data_points + test_data_points
 pixels = 500
 dimensions = (pixels, pixels)
 bins = 3
