@@ -41,10 +41,10 @@ for f in listdir(folder_path + "NORMAL"):
     test_images.append(im)
     test_labels = np.append(test_labels, 0)
 
-    for f in listdir(folder_path + "PNEUMONIA"):
+for f in listdir(folder_path + "PNEUMONIA"):
     im = img.open(f)
-    train_images.append(im)
+    test_images.append(im)
     if "bacteria" in f:
-        train_labels = np.append(train_labels, 1)
+        test_labels = np.append(test_labels, 1)
     elif "virus" in f:
-        train_labels = np.append(train_labels, 2)
+        test_labels = np.append(test_labels, 2)
