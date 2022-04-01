@@ -33,11 +33,12 @@ def main():
             image = np.reshape(image, (pixels, pixels, 1))
             image = np.expand_dims(image, 0)
             result = model.predict(image)
-            result = np.argmax(result)
-            if result == 0:
-                st.write("The image shown does not indicate pneumonia in the patient")
-            elif result == 1:
-                st.write("Unfortunately, the image indicates pneumonia in the patient")
+            # result = np.argmax(result)
+            st.write(result)
+            # if result == 0:
+                # st.write("The image shown does not indicate pneumonia in the patient")
+            # elif result == 1:
+                # st.write("Unfortunately, the image indicates pneumonia in the patient")
 
 
     
