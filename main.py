@@ -81,3 +81,4 @@ test_images = np.stack(test_images)
 
 print(np.shape(train_images))
 print(np.shape(test_images))
+
