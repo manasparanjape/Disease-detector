@@ -35,6 +35,7 @@ def main():
             image = np.expand_dims(image, 0)
             image = image / 255.0
             result = model.predict(image)
+            st.write(result)
             result = np.argmax(result)
             if result == 0:
                 st.write("The image shown does not indicate pneumonia in the patient")
