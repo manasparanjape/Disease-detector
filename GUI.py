@@ -6,10 +6,41 @@ import numpy as np
 model_filename = 'model.sav'
 pixels = 150
 dimensions = (pixels, pixels)
+bins = 3
 
 def load_image(image_file):
     im = img.open(image_file)
     return im
+
+def predict_2_bins(image, model):
+    image = image.resize(dimensions)
+    image = image.convert('L')
+    image = np.asarray(image)
+    image = np.reshape(image, (pixels, pixels, 1))
+    image = np.expand_dims(image, 0)
+    image = image / 255.0
+    result = model.predict(image)
+    result = np.argmax(result)
+    if result == 0:
+        return "The image shown does not indicate pneumonia in the patient"
+    elif result == 1:
+        return "Unfortunately, the image indicates pneumonia in the patient"
+
+def predict_3_bins(image, model):
+    image = image.resize(dimensions)
+    image = image.convert('L')
+    image = np.asarray(image)
+    image = np.reshape(image, (pixels, pixels, 1))
+    image = np.expand_dims(image, 0)
+    image = image / 255.0
+    result = model.predict(image)
+    result = np.argmax(result)
+    if result == 0:
+        return "The image shown does not indicate pneumonia in the patient"
+    elif result == 1:
+        return "Unfortunately, the image indicates bacterial pneumonia in the patient"
+    elif result == 2:
+        return "Unfortunately, the image indicates viral pneumonia in the patient"
 
 def main():
     st.title("Welcome to Manas' Pneumonia Detector")
@@ -28,19 +59,13 @@ def main():
             
             model = pk.load(open(model_filename, 'rb'))
             image = img.open(image_file)
-            image = image.resize(dimensions)
-            image = image.convert('L')
-            image = np.asarray(image)
-            image = np.reshape(image, (pixels, pixels, 1))
-            image = np.expand_dims(image, 0)
-            image = image / 255.0
-            result = model.predict(image)
-            st.write(result)
-            result = np.argmax(result)
-            if result == 0:
-                st.write("The image shown does not indicate pneumonia in the patient")
-            elif result == 1:
-                st.write("Unfortunately, the image indicates pneumonia in the patient")
+            if bins == 2:
+                result = predict_2_bins(image, model)
+                st.write(result)
+            elif bins == 3:
+                result = predict_2_bins(image, model)
+                st.write(result)
+
 
 
     
