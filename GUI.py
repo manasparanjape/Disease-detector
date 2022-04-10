@@ -3,10 +3,10 @@ from PIL import Image as img
 import pickle as pk
 import numpy as np
 
-model_filename = 'model.sav'
 pixels = 150
 dimensions = (pixels, pixels)
 bins = 3
+model_filename = "model_" + str(bins) + "_bins.sav"
 
 def load_image(image_file):
     im = img.open(image_file)
@@ -57,8 +57,8 @@ def main():
             st.write(file_details)
             st.image(load_image(image_file), width=250)
             
-            model = pk.load(open(model_filename, 'rb'))
             image = img.open(image_file)
+            model = pk.load(open(model_filename, "rb"))
             if bins == 2:
                 result = predict_2_bins(image, model)
                 st.write(result)
