@@ -5,7 +5,7 @@ import numpy as np
 
 pixels = 150
 dimensions = (pixels, pixels)
-bins = 3
+bins = 2
 model_filename = "model_bins_" + str(bins) + ".sav"
 
 def load_image(image_file):
