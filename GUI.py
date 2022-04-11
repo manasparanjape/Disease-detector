@@ -63,7 +63,7 @@ def main():
                 result = predict_2_bins(image, model)
                 st.write(result)
             elif bins == 3:
-                result = predict_2_bins(image, model)
+                result = predict_3_bins(image, model)
                 st.write(result)
 
 
