@@ -1,8 +1,10 @@
 import pickle as pk
 from flask import Flask, request, jsonify
 
-
 app = Flask('Pneumonia Detector')
+
+@app.route('/maskImage', )
+
 @app.route('/predict', methods=['POST'])
 def predict():
     return 'Pinging model application'
