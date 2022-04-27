@@ -1,1 +1,1 @@
-This repository is designed to detect Pneumonia from xrays of patients.
+This repository is designed to detect various diseases in patients from specific images.
