@@ -11,8 +11,14 @@ import matplotlib.pyplot as plt
 
 # Create your views here.
 def index(request):
+    print(f'\n\n\n\n{os.getcwd()}\n\n\n\n')
     if request.method == 'POST':
         form=ImageForm(data=request.POST,files=request.FILES)
+
+        Image.objects.all().delete()
+        for f in os.listdir('media/img/22'):
+            os.remove(os.path.join('media/img/22', f))
+
         if form.is_valid():
             form.save()
             obj = form.instance
