@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 
 # Create your views here.
 def index(request):
-    print(f'\n\n\n\n{os.getcwd()}\n\n\n\n')
     if request.method == 'POST':
         form=ImageForm(data=request.POST,files=request.FILES)
 
