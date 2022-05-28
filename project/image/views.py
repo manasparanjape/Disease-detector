@@ -8,8 +8,6 @@ from .models import Image
 import pickle as pk
 from PIL import Image as im
 import matplotlib.pyplot as plt
-import tensorflow as tf
-from tensorflow.python import keras
 
 # Create your views here.
 def index(request):
@@ -57,7 +55,6 @@ def index(request):
                     prediction = 'The image does not indicate any Pneumonia'
                 else:
                     prediction = 'Unfortuately, the scan indicates the patient has Pneumonia'        
-
             return render(request, 'index.html', {
                 'obj': obj, 
                 'prediction': prediction,
