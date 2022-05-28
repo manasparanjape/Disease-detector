@@ -14,7 +14,7 @@ def index(request):
     if request.method == 'POST':
         form=ImageForm(data=request.POST,files=request.FILES)
         if form.is_valid():
-            form.save()
+            # form.save()
             obj = form.instance
             image_file = im.open(obj.image)
             if obj.disease == 'bt':
