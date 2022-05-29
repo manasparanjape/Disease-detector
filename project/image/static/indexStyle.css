@@ -3,6 +3,7 @@ html {
 }
 
 h1 {
+    margin-top: 75px;
     text-align: center;
     color: white;
 }
@@ -14,25 +15,84 @@ img {
 }
 
 #instructions {
+    margin-top: 50px;
     text-align: left;
     color: white;
+    font-family: "Times New Roman";
+    font-size: 20px;
 }
 
-button {
-    align-items: center;
-    background-color: red;
+li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#form {
+    margin-top: 50px;
+    text-align: center;
+    /* background-color: white;
     border: 1px solid black;
     color: black;
     padding: 10px;
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer; */
+}
+
+input[type=file]::file-selector-button {
+    background-color: black;
+    color: white;
+    border-color: white;
+    border-width: 1px;
+    height: 35px;
+    width: 100px;
+}
+
+.uploading {
+    background-color: black;
+    color: white;
+}
+
+.disease {
+    margin-top: 0px;
+    color: #ffffff;
+}
+
+button {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-color: red;
+    height: 50px;
+    width: 200px;
+    border-radius: 25px;
+    font-family: "Times New Roman";
+    font-weight: 400;
+    font-size: 20px;
 }
 
 button:hover {
     background-color: #ff4d4d;
 }
 
+label {
+    color: white;
+}
+
+select {
+    background-color: black;
+}
+
+option {
+    color: white;
+}
+
 #prediction {
     text-align: center;
     color: white;
+}
+
+.errorlist {
+    margin-bottom: 45px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
 }
