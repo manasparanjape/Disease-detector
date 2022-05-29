@@ -8,12 +8,13 @@ from .models import Image
 import pickle as pk
 from PIL import Image as im
 import matplotlib.pyplot as plt
+import sys
 
 # Create your views here.
 def index(request):
     if request.method == 'POST':
         form=ImageForm(data=request.POST,files=request.FILES)
-
+        print(f'\n\n\n{sys.executable}\n\n\n')
         Image.objects.all().delete()
         for f in os.listdir('media/img/22'):
             os.remove(os.path.join('media/img/22', f))
