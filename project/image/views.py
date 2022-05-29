@@ -1,20 +1,22 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
-from django.shortcuts import render, redirect
 import numpy as np
+import pickle as pk
+import sys
+from PIL import Image as im
 from .form import ImageForm
 from .models import Image
-import pickle as pk
-from PIL import Image as im
-import matplotlib.pyplot as plt
-import sys
+from django.shortcuts import render
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 
 # Create your views here.
 def index(request):
     if request.method == 'POST':
-        form=ImageForm(data=request.POST,files=request.FILES)
+        form = ImageForm(data=request.POST, files=request.FILES)
+
         print(f'\n\n\n{sys.executable}\n\n\n')
+
         Image.objects.all().delete()
         for f in os.listdir('media/img/22'):
             os.remove(os.path.join('media/img/22', f))
@@ -29,25 +31,32 @@ def index(request):
                 image_array = np.asarray(image_file)
                 image_array = np.reshape(image_array, (150, 150))
                 image_array = np.expand_dims(image_array, axis=0)
-                prediction_model = pk.load(open('prediction_models/bt_bins_2.bin', 'rb'))
+                prediction_model = pk.load(
+                    open('prediction_models/bt_bins_2.bin', 'rb'))
                 prediction = np.argmax(prediction_model.predict(image_array))
                 if prediction == 0:
                     prediction = 'The image does not indicate any tumor'
                 else:
-                    prediction = 'Unfortuately, the scan suggests the existence of a tumor'
-                
+                    prediction = 'Unfortuately, the scan suggests' \
+                                 ' the existence of a tumor. ' \
+                                 'Please report these findings to a doctor ' \
+                                 'and get a second opinion.'
+
             elif obj.disease == 'l':
                 image_file = image_file.resize((100, 100))
                 image_file = image_file.convert('L')
                 image_array = np.asarray(image_file)
                 image_array = np.reshape(image_array, (100, 100))
                 image_array = np.expand_dims(image_array, axis=0)
-                prediction_model = pk.load(open('prediction_models/l.bin', 'rb'))
+                prediction_model = pk.load(
+                    open('prediction_models/l.bin', 'rb'))
                 prediction = np.argmax(prediction_model.predict(image_array))
                 if prediction == 0:
-                    prediction = 'The image does not indicate Acute Lymphoblastic Lukemia'
+                    prediction = 'The image does not indicate '\
+                        'the cell is an immature leukemic blast'
                 else:
-                    prediction = 'Unfortuately, the image indicates the patient has Acute Lymphobastic Lukemia'
+                    prediction = 'Unfortuately, the image indicates the ' \
+                                 'cell is an immature leukemic blast. '
 
             elif obj.disease == 'p':
                 image_file = image_file.resize((150, 150))
@@ -55,20 +64,23 @@ def index(request):
                 image_array = np.asarray(image_file)
                 image_array = np.reshape(image_array, (150, 150))
                 image_array = np.expand_dims(image_array, axis=0)
-                prediction_model = pk.load(open('prediction_models/p_bins_2.bin', 'rb'))
+                prediction_model = pk.load(
+                    open('prediction_models/p_bins_2.bin', 'rb'))
                 prediction = np.argmax(prediction_model.predict(image_array))
                 if prediction == 0:
                     prediction = 'The image does not indicate any Pneumonia'
                 else:
-                    prediction = 'Unfortuately, the scan indicates the patient has Pneumonia'        
+                    prediction = 'Unfortuately, the scan indicates the ' \
+                                 'patient has Pneumonia' \
+                                 'Please consult a doctor'
             return render(request, 'index.html', {
-                'obj': obj, 
+                'obj': obj,
                 'prediction': prediction,
-                })
+            })
     else:
-        form=ImageForm()
-    img=Image.objects.all()
+        form = ImageForm()
+    img = Image.objects.all()
     return render(request, 'index.html', {
-        'img': img, 
+        'img': img,
         'form': form,
-        })
+    })
