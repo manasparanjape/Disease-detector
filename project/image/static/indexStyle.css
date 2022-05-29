@@ -1,0 +1,38 @@
+html {
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+#instructions {
+    text-align: left;
+    color: white;
+}
+
+button {
+    align-items: center;
+    background-color: red;
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4d4d;
+}
+
+#prediction {
+    text-align: center;
+    color: white;
+}
