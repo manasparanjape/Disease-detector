@@ -83,6 +83,7 @@ select {
 
 option {
     color: white;
+    text-align: center;
 }
 
 #prediction {
