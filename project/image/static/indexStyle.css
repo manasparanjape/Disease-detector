@@ -79,6 +79,10 @@ label {
 
 select {
     background-color: black;
+    height: 35px;
+    width: 440px;
+    border-radius: 25px;
+    border-width: 2px;
 }
 
 option {
