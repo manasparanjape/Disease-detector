@@ -1,7 +1,6 @@
 import os
 import numpy as np
 import pickle as pk
-import sys
 from PIL import Image as im
 from .form import ImageForm
 from .models import Image
@@ -14,8 +13,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 def index(request):
     if request.method == 'POST':
         form = ImageForm(data=request.POST, files=request.FILES)
-
-        print(f'\n\n\n{sys.executable}\n\n\n')
 
         Image.objects.all().delete()
         for f in os.listdir('media/img/22'):
