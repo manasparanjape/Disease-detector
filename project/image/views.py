@@ -70,7 +70,7 @@ def index(request):
                     prediction = 'Unfortuately, the scan indicates the ' \
                                  'patient has Pneumonia' \
                                  'Please consult a doctor'
-            return render(request, 'index.html', {
+            return render(request, 'prediction.html', {
                 'obj': obj,
                 'prediction': prediction,
             })
@@ -81,3 +81,8 @@ def index(request):
         'img': img,
         'form': form,
     })
+
+
+def result(request):
+    if request.method == 'GET':
+        return render(request, 'index.html')
