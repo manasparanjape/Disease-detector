@@ -39,6 +39,7 @@ li {
 }
 
 input[type=file]::file-selector-button {
+    cursor: pointer;
     background-color: black;
     color: white;
     border-color: white;
@@ -70,6 +71,7 @@ button {
 }
 
 button:hover {
+    cursor: pointer;
     background-color: #ff4d4d;
 }
 
