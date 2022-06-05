@@ -1,0 +1,20 @@
+{% load static %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="{% static 'predictionStyle.css' %}">
+        <title>Results</title>
+    </head>
+    <body>
+        Below is the image you uploaded and the diagnosis from the same:
+        <img src="{{ obj.image.url }}" alt="There was an issue in uploading the image" class="img-thumbnail">
+        <p id="prediction">{{ prediction }}</p>
+        <form method='GET' action="{% url 'home' %}">
+            <button type="submit">Back to Home</button>
+        </form>
+    </body>
+</html>
