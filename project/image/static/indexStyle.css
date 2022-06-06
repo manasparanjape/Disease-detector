@@ -58,6 +58,10 @@ input[type=file]::file-selector-button {
     color: #ffffff;
 }
 
+.disease:hover {
+    cursor: pointer;
+}
+
 button {
     margin-top: 30px;
     margin-bottom: 40px;
