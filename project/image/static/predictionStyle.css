@@ -1,0 +1,33 @@
+html {
+    background-color: black;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border-color: white;
+    border-width: 1px;
+    height: 35px;
+    width: 100px;
+}
+
+button:hover {
+    cursor: pointer
+}
+
+#prediction {
+    margin-top: 50px;
+    text-align: center;
+    /* background-color: white; */
+    border: 1px solid black;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
