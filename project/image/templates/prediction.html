@@ -10,11 +10,11 @@
         <title>Results</title>
     </head>
     <body>
-        Below is the image you uploaded and the diagnosis from the same:
-        <img src="{{ obj.image.url }}" alt="There was an issue in uploading the image" class="img-thumbnail">
-        <p id="prediction">{{ prediction }}</p>
         <form method='GET' action="{% url 'home' %}">
             <button type="submit">Back to Home</button>
         </form>
+        Below is the image you uploaded and the diagnosis from the same:
+        <img src="{{ obj.image.url }}" alt="There was an issue in uploading the image" class="img-thumbnail">
+        <p id="prediction">{{ prediction }}</p>
     </body>
 </html>
