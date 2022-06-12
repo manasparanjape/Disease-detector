@@ -1,5 +1,5 @@
 html {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 img {
@@ -8,8 +8,14 @@ img {
     width: 50%;
 }
 
+body {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    color: white;
+}
+
 button {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     border-color: white;
     border-width: 1px;
@@ -25,7 +31,7 @@ button:hover {
     margin-top: 50px;
     text-align: center;
     /* background-color: white; */
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0);
     color: white;
     padding: 10px;
     font-size: 16px;
