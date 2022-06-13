@@ -5,6 +5,7 @@ DISEASE_CHOICES = [
     ('l', 'Acute Lymphoblastic Lukemia '
           '(Image of bone marrow cell of patient)'),
     ('p', 'Pneumonia (Chest x-ray of patient)'),
+    ('k', 'Kidney Disease (Torso x-ray of patient)')
 ]
 
 
