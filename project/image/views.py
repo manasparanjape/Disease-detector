@@ -70,6 +70,31 @@ def index(request):
                     prediction = 'Unfortuately, the scan indicates the ' \
                                  'patient has Pneumonia' \
                                  'Please consult a doctor'
+
+            elif obj.disease == 'k':
+                image_file = image_file.resize((200, 200))
+                image_file = image_file.convert('L')
+                image_array = np.asarray(image_file)
+                image_array = np.expand_dims(image_array, axis=0)
+                image_array = image_array / 255.0
+                prediction_model = pk.load(
+                    open('prediction_models/k.bin', 'rb'))
+                prediction = np.argmax(prediction_model.predict(image_array))
+                if prediction == 1:
+                    prediction = 'The image does not indicate any kidney ' \
+                                 'disease'
+                elif prediction == 0:
+                    prediction = 'Unfortunately, the scan indicates the ' \
+                                 'presence of a cyst in the patient\'s kidney.'
+                elif prediction == 2:
+                    prediction = 'Unfortunately, the scan indicates the ' \
+                                 'presence of a stone in the patient\'s ' \
+                                 'kidney.'
+                elif prediction == 3:
+                    prediction = 'Unfortunately, the scan indicates the ' \
+                                 'presence of a tumor in the patient\'s ' \
+                                 'kidney.'
+
             return render(request, 'prediction.html', {
                 'obj': obj,
                 'prediction': prediction,
