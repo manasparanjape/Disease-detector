@@ -7,14 +7,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="{% static 'predictionStyle.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <title>Results</title>
     </head>
     <body>
         <form method='GET' action="{% url 'home' %}">
-            <button type="submit">Back to Home</button>
+            <button type="submit"><i class="fa fa-home fa-2x"> Home</i></button>
         </form>
-        Below is the image you uploaded and the diagnosis from the same:
-        <img src="{{ obj.image.url }}" alt="There was an issue in uploading the image" class="img-thumbnail">
+        <br>
+        The diagnosis for the image below is: 
         <p id="prediction">{{ prediction }}</p>
+        <img src="{{ obj.image.url }}" alt="There was an issue in uploading the image" class="img-thumbnail">
     </body>
 </html>
